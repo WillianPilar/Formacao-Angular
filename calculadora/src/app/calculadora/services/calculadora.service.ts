@@ -8,7 +8,7 @@ export class CalculadoraService {
   static readonly ADICAO : string = '+';
   static readonly SUBTRACAO : string = '-';
   static readonly MULTIPLICACAO : string = '*';
-  static readonly DIVISAO : string = '/';
+  static readonly DIVISAO : string = '/'; 
 
   constructor() { }
 
