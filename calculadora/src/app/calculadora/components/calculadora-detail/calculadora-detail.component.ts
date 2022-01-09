@@ -25,7 +25,7 @@ export class CalculadoraDetailComponent implements OnInit {
     this.numero1 = null;
     this.numero2 = null;
     this.operacao = null;
-    this.resultado = 0;
+    this.resultado = null;
     this.display();
   }
 
@@ -65,7 +65,7 @@ export class CalculadoraDetailComponent implements OnInit {
     // apenas define a operação caso não exista uma
   	if (this.operacao === null) {
       this.operacao = operacao;
-      console.log(this.operacao);
+      this.display();
   	}
 
     /* caso operação definida e número 2 selecionado,
@@ -86,23 +86,30 @@ export class CalculadoraDetailComponent implements OnInit {
 
   calcular(): void {
   	if (this.numero2 === null) {
-  		return;
+      this.display();
   	}
 
   	this.resultado = this.calculadoraService.calcular(
   		parseFloat(this.numero1), 
   		parseFloat(this.numero2), 
   		this.operacao);
+    
+    this.operacao = null;
+    this.numero1 = null;
+    this.numero2 = null;
     this.display();
   }
 
   display() : void {
 
     if (this.resultado !== null) {
+      console.log("RESULTADO: ", this.resultado);
       this.display2 = this.resultado.toString();
+      return;
     }
     if (this.numero2 !== null) {
       this.display2 = this.numero2;
+      return;
     }
     this.display2 = this.numero1;
 
