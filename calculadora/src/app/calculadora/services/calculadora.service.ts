@@ -16,6 +16,8 @@ export class CalculadoraService {
     
     let resultado : number;
 
+    console.log("SERVICE");
+
     switch(operacao){
       case CalculadoraService.ADICAO:
         resultado = num1 + num2;
@@ -32,6 +34,8 @@ export class CalculadoraService {
       default:
         resultado = 0;
     }
+
+    console.log(resultado);
 
     return resultado;
 
